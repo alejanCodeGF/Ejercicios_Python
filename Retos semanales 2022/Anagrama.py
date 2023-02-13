@@ -3,10 +3,17 @@
 # NO hace falta comprobar que ambas palabras existan.
 # Dos palabras exactamente iguales no son anagrama.
 
-def func_anagrama(pal1, pal2):
-    if pal1 == pal2[::-1]:
-        return True
-    return False
+def contador_letras(str):
+    dfin = {}
+    for i in str:
+        if i in dfin:
+            dfin[i] += 1
+        else:
+            dfin[i] = 1
+    return (dfin)
 
-print(func_anagrama("amor","roma"))
+def func_anagrama(pal1, pal2):
+    return (contador_letras(pal1) == contador_letras(pal2))
+
+print(func_anagrama("amorr","romar"))
 print(func_anagrama("amor","pollo"))
